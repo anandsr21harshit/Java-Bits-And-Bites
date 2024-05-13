@@ -1,0 +1,11 @@
+## ThreadLifeCycle
+
+| Lifecycle State |                                                                                                               Description                                                                                                               | 
+|-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| New             |                                                                              * Thread has been created but not started<br/>* It's just an object in memory                                                                              | 
+| Runnable        |                                                                                          * Thread is ready to run <br/>* Waiting for CPU time                                                                                           | 
+| Running         |                                                                                               * When the thread start executing its code.                                                                                               
+| Blocked         | Thread goes into blocked state when -<br/>* I/O: reading from a file or database<br/>* Lock acquired: If the thread wants to lock on a resource which is locked by another thread then it is blocked.<br/>Release all the Monitor Locks |
+| Waiting         |                   * Thread goes into this state when we call the wait() method, makes it non-runnable<br/>* It goes back to runnable when we call the notify() or notifyAll() method<br/>* Releases all MONITOR LOCKS                   |
+| Timed Waiting   |                                        * Thread waits for a specific period of time and comes back to runnable state, after sepcific conditions are met.<br/>* Do not release any MONITOR LOCKS                                         
+| Terminated      |                                                                                   Life of a thread is completed and it cannot be started back again.                                                                                    |
