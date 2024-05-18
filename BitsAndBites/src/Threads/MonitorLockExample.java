@@ -6,6 +6,7 @@ public class MonitorLockExample {
         try{
             System.out.println("inside task1");
             Thread.sleep(10000);
+            System.out.println("task1 completed");
         }catch (Exception e){
             // handling here
         }
