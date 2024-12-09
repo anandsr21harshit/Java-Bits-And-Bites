@@ -23,6 +23,7 @@ public class Main {
     }
 
     private static void readFileAsync(String path){
+        System.out.println("Reading file asynchronously...");
         CompletableFuture<Void> future = CompletableFuture.runAsync(()->{
             try(BufferedReader br = new BufferedReader(new FileReader(path))){
                 Thread.sleep(2000);
@@ -34,18 +35,12 @@ public class Main {
                 ex.printStackTrace();
             }
         });
-        System.out.println("Reading file asynchronously...");
-        future.thenRun(()-> System.out.println("File read"));
         System.out.println("Doing some other work");
-        try {
-            Thread.sleep(3000);  // Allow enough time for async task to finish
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        future.join();
     }
 
     public static void main(String[] args) {
-//        readFileSync("BitsAndBites/src/SyncAsyncPattern/test.txt");
+        readFileSync("BitsAndBites/src/SyncAsyncPattern/test.txt");
         readFileAsync("BitsAndBites/src/SyncAsyncPattern/test.txt");
     }
 }
