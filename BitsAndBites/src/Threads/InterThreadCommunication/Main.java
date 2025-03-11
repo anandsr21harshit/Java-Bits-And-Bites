@@ -5,7 +5,7 @@ public class Main {
         SharedResource obj = new SharedResource();
         Thread t1 = new Thread(() -> {
             try {
-                Thread.sleep(8000);
+                Thread.sleep(8000); // making this thread sleep so that consumeItem() is executed first
             } catch (InterruptedException e) {
                 // handle exception
             }
